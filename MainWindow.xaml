@@ -1,0 +1,31 @@
+﻿<Window x:Class="ZipKeyStreamingClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZipKeyStreamingClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid DataContext="{Binding Path=CameraModel}" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="CameraSurface" Grid.Column="1" Stretch="Fill" StretchDirection="Both" Source="{Binding Path=Source, UpdateSourceTrigger=PropertyChanged}"></Image>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="StartButton" Click="StartButton_OnClick"  Grid.Column="0" Margin="5" Background="Black" Foreground="White" FontWeight="Bold" FontSize="18">START STREAM</Button>
+            <Button x:Name="StopButton" Click="StopButton_OnClick" Grid.Column="1" Margin="5" Background="Black" Foreground="White" FontWeight="Bold" FontSize="18">STOP STREAM</Button>
+        </Grid>
+    </Grid>
+</Window>
